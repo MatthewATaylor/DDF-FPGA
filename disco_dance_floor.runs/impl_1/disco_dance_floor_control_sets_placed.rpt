@@ -1,0 +1,423 @@
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Mon Jul  4 14:29:37 2022
+| Host         : mpc running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file disco_dance_floor_control_sets_placed.rpt
+| Design       : disco_dance_floor
+| Device       : xc7a100t
+----------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |   345 |
+|    Minimum number of control sets                        |   345 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |  2390 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |   345 |
+| >= 0 to < 4        |   337 |
+| >= 4 to < 6        |     1 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     1 |
+| >= 10 to < 12      |     1 |
+| >= 12 to < 14      |     1 |
+| >= 14 to < 16      |     1 |
+| >= 16              |     3 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |             354 |          178 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              13 |            4 |
+| Yes          | No                    | No                     |             377 |          356 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              50 |           11 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------------------------+--------------------------+--------------------------+------------------+----------------+--------------+
+|           Clock Signal           |       Enable Signal      |     Set/Reset Signal     | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------------------------+--------------------------+--------------------------+------------------+----------------+--------------+
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[14]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[666]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[2]              |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[4]              |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[8]              |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[12]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[0]              |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[6]              |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[10]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[28]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[74]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[92]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[112]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[124]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[128]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[130]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[132]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[64]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[18]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[114]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[96]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[122]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[66]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[136]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[138]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[140]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[60]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[94]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[102]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[40]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[62]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[56]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[80]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[84]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[106]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[72]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[42]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[98]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[26]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[118]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[32]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[134]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[50]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[250]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[90]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[104]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[22]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[44]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[46]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[54]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[100]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[116]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[120]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[126]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[20]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[86]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[36]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[34]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[76]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[68]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[16]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[38]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[30]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[52]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[48]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[88]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[70]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[78]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[58]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[82]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[24]             |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[108]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[110]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[190]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[230]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[236]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[242]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[150]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[226]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[146]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[182]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[178]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[184]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[238]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[244]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[246]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[662]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[252]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[240]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[176]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[234]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[160]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[172]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[254]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[256]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[258]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[162]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[260]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[262]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[264]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[266]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[268]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[188]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[232]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[212]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[248]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[200]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[180]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[202]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[218]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[144]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[170]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[174]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[166]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[168]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[194]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[148]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[204]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[152]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[186]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[198]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[196]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[156]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[154]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[206]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[208]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[142]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[158]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[192]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[210]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[214]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[216]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[220]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[222]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[224]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[164]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[228]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[302]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[298]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[358]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[278]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[284]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[334]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[340]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[306]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[300]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[270]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[294]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[326]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[342]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[308]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[372]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[296]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[314]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[290]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[310]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[344]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[280]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[336]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[354]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[378]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[382]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[352]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[356]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[370]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[384]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[386]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[288]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[304]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[322]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[350]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[282]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[316]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[276]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[324]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[320]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[332]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[338]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[346]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[360]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[362]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[388]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[272]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[274]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[312]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[328]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[330]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[348]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[364]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[366]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[374]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[390]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[392]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[394]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[368]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[292]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[376]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[380]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[286]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[318]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[396]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[422]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[506]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[432]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[470]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[476]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[518]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[414]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[416]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[410]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[430]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[442]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[462]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[478]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[444]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[494]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[520]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[408]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[450]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[446]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[404]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[472]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[480]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[490]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[498]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[522]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[488]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[492]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[500]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[524]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[420]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[440]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[458]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[502]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[486]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[412]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[452]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[460]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[402]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[426]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[406]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[398]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[400]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[438]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[456]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[468]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[418]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[448]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[464]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[466]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[474]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[482]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[484]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[496]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[424]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[434]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[504]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[508]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[510]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[512]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[514]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[428]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[436]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[454]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[516]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[586]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[556]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[582]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[588]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[530]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[596]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[526]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[554]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[584]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[560]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[578]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[598]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[602]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[600]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[608]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[538]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[580]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[544]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[610]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[618]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[552]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[604]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[620]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[542]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[624]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[626]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[628]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[636]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[568]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[638]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[640]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[642]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[646]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[634]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[590]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[622]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[558]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[564]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[616]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[648]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[652]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[630]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[644]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[528]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[546]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[532]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[614]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[650]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[570]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[536]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[534]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[540]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[572]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[574]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[594]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[550]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[576]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[548]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[606]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[562]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[612]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[566]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[592]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[632]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[658]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[654]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[664]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[670]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[660]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[656]            |                          |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/p_0_in[668]            |                          |                1 |              1 |         1.00 |
+|  led_clk_gen/inst/clk_out1       |                          |                          |                2 |              3 |         1.50 |
+|  clk_IBUF_BUFG                   |                          |                          |                2 |              4 |         2.00 |
+|  e/eth_clk_gen/inst/clk_out1     | e/sel                    | e/clear                  |                2 |              9 |         4.50 |
+|  e/eth_mon_clk_gen/inst/clk_out1 |                          |                          |                5 |             11 |         2.20 |
+|  led_clk_gen/inst/clk_out1       |                          | bit_cycles[13]_i_1_n_0   |                4 |             13 |         3.25 |
+|  led_clk_gen/inst/clk_out1       | bram_rd_addr[13]_i_2_n_0 | will_reset4_out          |                3 |             14 |         4.67 |
+|  led_clk_gen/inst/clk_out1       | led_reg[26]_i_1_n_0      | current_bits[26]_i_1_n_0 |                6 |             27 |         4.50 |
+|  led_clk_gen/inst/clk_out1       | current_bits[26]_i_1_n_0 |                          |               20 |             41 |         2.05 |
+|  e/eth_clk_gen/inst/clk_out1     |                          |                          |              169 |            336 |         1.99 |
++----------------------------------+--------------------------+--------------------------+------------------+----------------+--------------+
+
+

@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Mon Jul  4 14:14:13 2022
+# Process ID: 6900
+# Current directory: C:/Users/Matth/Documents/Xilinx/disco_dance_floor/disco_dance_floor.runs/clk_wiz_2_synth_1
+# Command line: vivado.exe -log clk_wiz_2.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source clk_wiz_2.tcl
+# Log file: C:/Users/Matth/Documents/Xilinx/disco_dance_floor/disco_dance_floor.runs/clk_wiz_2_synth_1/clk_wiz_2.vds
+# Journal file: C:/Users/Matth/Documents/Xilinx/disco_dance_floor/disco_dance_floor.runs/clk_wiz_2_synth_1\vivado.jou
+# Running On: mpc, OS: Windows, CPU Frequency: 2208 MHz, CPU Physical cores: 6, Host memory: 17031 MB
+#-----------------------------------------------------------
+source clk_wiz_2.tcl -notrace
