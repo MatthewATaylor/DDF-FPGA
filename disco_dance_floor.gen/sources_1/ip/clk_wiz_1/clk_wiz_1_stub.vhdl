@@ -3,8 +3,8 @@
 -- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
 -- Date        : Sun Jul  3 18:58:52 2022
 -- Host        : mpc running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub
---               c:/Users/Matth/Documents/Xilinx/disco_dance_floor/disco_dance_floor.gen/sources_1/ip/clk_wiz_1/clk_wiz_1_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub -rename_top clk_wiz_1 -prefix
+--               clk_wiz_1_ clk_wiz_1_stub.vhdl
 -- Design      : clk_wiz_1
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7a100tcsg324-1

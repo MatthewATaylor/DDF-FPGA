@@ -1,0 +1,9 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../../disco_dance_floor.gen/sources_1/ip/clk_wiz_0" --include "../../../../../disco_dance_floor.gen/sources_1/ip/clk_wiz_1" \
+"disco_dance_floor_tb_func_impl.v" \
+
+sv xil_defaultlib  --include "../../../../../disco_dance_floor.gen/sources_1/ip/clk_wiz_0" --include "../../../../../disco_dance_floor.gen/sources_1/ip/clk_wiz_1" \
+"../../../../../disco_dance_floor.srcs/sim_1/new/disco_dance_floor_tb.sv" \
+
+# Do not sort compile order
+nosort

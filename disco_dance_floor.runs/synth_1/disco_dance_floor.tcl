@@ -70,6 +70,8 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 3
+set_msg_config -id {Common 17-41} -limit 10000000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-1
 
@@ -105,11 +107,6 @@ set_property used_in_implementation false [get_files -all c:/Users/Matth/Documen
 set_property used_in_implementation false [get_files -all c:/Users/Matth/Documents/Xilinx/disco_dance_floor/disco_dance_floor.gen/sources_1/ip/clk_wiz_1/clk_wiz_1.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Matth/Documents/Xilinx/disco_dance_floor/disco_dance_floor.gen/sources_1/ip/clk_wiz_1/clk_wiz_1_ooc.xdc]
 
-read_ip -quiet c:/Users/Matth/Documents/Xilinx/disco_dance_floor/disco_dance_floor.srcs/sources_1/ip/clk_wiz_2/clk_wiz_2.xci
-set_property used_in_implementation false [get_files -all c:/Users/Matth/Documents/Xilinx/disco_dance_floor/disco_dance_floor.gen/sources_1/ip/clk_wiz_2/clk_wiz_2_board.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/Matth/Documents/Xilinx/disco_dance_floor/disco_dance_floor.gen/sources_1/ip/clk_wiz_2/clk_wiz_2.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/Matth/Documents/Xilinx/disco_dance_floor/disco_dance_floor.gen/sources_1/ip/clk_wiz_2/clk_wiz_2_ooc.xdc]
-
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -122,6 +119,8 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 read_xdc C:/Users/Matth/Documents/Xilinx/disco_dance_floor/disco_dance_floor.srcs/constrs_1/imports/new/nexys.xdc
 set_property used_in_implementation false [get_files C:/Users/Matth/Documents/Xilinx/disco_dance_floor/disco_dance_floor.srcs/constrs_1/imports/new/nexys.xdc]
 
+read_xdc dont_touch.xdc
+set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
 
 read_checkpoint -auto_incremental -incremental C:/Users/Matth/Documents/Xilinx/disco_dance_floor/disco_dance_floor.srcs/utils_1/imports/synth_1/disco_dance_floor.dcp

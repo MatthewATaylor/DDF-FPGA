@@ -115,6 +115,7 @@ proc step_failed { step } {
 OPTRACE "impl_1" END { }
 }
 
+set_msg_config -id {Common 17-41} -limit 10000000
 
 OPTRACE "impl_1" START { ROLLUP_1 }
 OPTRACE "Phase: Init Design" START { ROLLUP_AUTO }
@@ -142,7 +143,6 @@ OPTRACE "add files" START { }
   read_ip -quiet C:/Users/Matth/Documents/Xilinx/disco_dance_floor/disco_dance_floor.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci
   read_ip -quiet C:/Users/Matth/Documents/Xilinx/disco_dance_floor/disco_dance_floor.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
   read_ip -quiet C:/Users/Matth/Documents/Xilinx/disco_dance_floor/disco_dance_floor.srcs/sources_1/ip/clk_wiz_1/clk_wiz_1.xci
-  read_ip -quiet c:/Users/Matth/Documents/Xilinx/disco_dance_floor/disco_dance_floor.srcs/sources_1/ip/clk_wiz_2/clk_wiz_2.xci
 OPTRACE "read constraints: implementation" START { }
   read_xdc C:/Users/Matth/Documents/Xilinx/disco_dance_floor/disco_dance_floor.srcs/constrs_1/imports/new/nexys.xdc
 OPTRACE "read constraints: implementation" END { }

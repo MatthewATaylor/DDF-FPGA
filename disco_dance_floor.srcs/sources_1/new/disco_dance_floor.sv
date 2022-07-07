@@ -17,84 +17,93 @@ module disco_dance_floor#(
     input logic[1:0] eth_rxd,
     output logic eth_clk,
     
-    output logic[NUM_CHUNKS-1:0] led,
-    
-    output logic eth_mon_clk,
-    output logic eth_mon_d
+    output logic[NUM_CHUNKS-1:0] led
 );
+    logic init = 1;
+
     logic led_clk;
-    
-    logic[NUM_CHUNKS-1:0] led_reg;
     logic[NUM_CHUNKS-1:0] current_bits;
     
-    logic will_reset = 0;
-    logic is_resetting = 0;
+    logic will_reset;
+    logic is_resetting;
     
     // Indexing
-    logic[13:0] next_bit_index = 0;  // Serves as BRAM address offset (max = BITS_PER_CHUNK - 1)
-    logic[13:0] bit_cycles = 0;  // Controls pulse on/off and reset
+    logic[13:0] next_bit_index;  // Serves as BRAM address offset (max = BITS_PER_CHUNK - 1)
+    logic[13:0] bit_cycles;  // Controls pulse on/off and reset
 
     // BRAM port A (write)
-    logic[14:0] bram_wr_addr = 0;
-    logic[NUM_CHUNKS-1:0] bram_din = 0;
-    logic bram_wea = 0;
+    logic[14:0] bram_wr_addr;
+    logic[NUM_CHUNKS-1:0] bram_din;
+    logic bram_wea;
     
     // BRAM port B (read)
-    logic[13:0] bram_rd_addr_start = 0;  // Either 0 or BITS_PER_CHUNK depending on active buffer
-    logic[14:0] bram_rd_addr = bram_rd_addr_start;
+    logic[13:0] bram_rd_addr_start;  // Either 0 or BITS_PER_CHUNK depending on active buffer
+    logic[14:0] bram_rd_addr;
     logic[NUM_CHUNKS-1:0] bram_dout;
     
-    assign led = led_reg;
-    assign pmod = is_resetting;
-    
     always @ (posedge(led_clk)) begin
-        if (is_resetting) begin
-            // >50us reset between frames
-            if (bit_cycles == 2000) begin
-                bit_cycles <= 0;
-                is_resetting <= 0;
-                // TODO - set bram_rd_addr_start (only write to other half of BRAM)
-            end
-            else begin
-                bit_cycles <= bit_cycles + 1;
-            end
+        if (init) begin
+            led <= 0;
+        
+            will_reset <= 0;
+            is_resetting <= 0;
+            
+            next_bit_index <= 0;
+            bit_cycles <= 0;
+            
+            bram_rd_addr <= 0;
+            
+            init <= 0;
         end
         else begin
-            if (bit_cycles == 25) begin
-                // End of bit write
-                bit_cycles <= 0;
-                
-                if (will_reset) begin
-                    is_resetting <= 1;
+            if (is_resetting) begin
+                // >50us reset between frames
+                if (bit_cycles == 2000) begin
+                    bit_cycles <= 0;
+                    is_resetting <= 0;
+                    // TODO - set bram_rd_addr_start (only write to other half of BRAM)
                 end
-                will_reset <= 0;
+                else begin
+                    bit_cycles <= bit_cycles + 1;
+                end
             end
             else begin
-                if (bit_cycles == 0) begin
-                    // Start of pulse - set output pins high, store bit values
-                    led_reg <= {NUM_CHUNKS{1'b1}};
-                    current_bits <= bram_dout;
-                    next_bit_index <= next_bit_index + 1;
-                end
-                else if (bit_cycles == 8) begin
-                    // End of pulse for 0 bits
-                    led_reg <= current_bits;
-                end
-                else if (bit_cycles == 16) begin
-                    // End of pulse for 1 bits
-                    led_reg <= 0;
+                if (bit_cycles == 25) begin
+                    // End of bit write
+                    bit_cycles <= 0;
                     
-                    // Set BRAM read address for next bit
-                    if (next_bit_index == BITS_PER_CHUNK) begin
-                        // Finished full chunk, will need to reset
-                        bram_rd_addr <= bram_rd_addr_start;
-                        will_reset <= 1;
+                    if (will_reset) begin
+                        is_resetting <= 1;
                     end
-                    else begin
-                        bram_rd_addr <= bram_rd_addr_start + next_bit_index;
-                    end
+                    will_reset <= 0;
                 end
-                bit_cycles <= bit_cycles + 1;
+                else begin
+                    if (bit_cycles == 0) begin
+                        // Start of pulse - set output pins high, store bit values
+                        led <= {NUM_CHUNKS{1'b1}};
+                        current_bits <= bram_dout;
+                        next_bit_index <= next_bit_index + 1;
+                    end
+                    else if (bit_cycles == 8) begin
+                        // End of pulse for 0 bits
+                        led <= current_bits;
+                    end
+                    else if (bit_cycles == 16) begin
+                        // End of pulse for 1 bits
+                        led <= 0;
+                        
+                        // Set BRAM read address for next bit
+                        if (next_bit_index == BITS_PER_CHUNK) begin
+                            // Finished full chunk, will need to reset
+                            bram_rd_addr <= bram_rd_addr_start;
+                            will_reset <= 1;
+                        end
+                        else begin
+                            bram_rd_addr <= bram_rd_addr_start + next_bit_index;
+                        end
+                    end
+                    bit_cycles <= bit_cycles + 1;
+                end
             end
         end
     end
@@ -105,13 +114,21 @@ module disco_dance_floor#(
         .clk_out1(led_clk)
     );
 
-    eth e(
+    eth#(
+        .NUM_CHUNKS(NUM_CHUNKS),
+        .BITS_PER_CHUNK(BITS_PER_CHUNK)
+    ) e(
         .clk_i(clk),
         .crsdv_i(eth_crsdv),
         .rxd_i(eth_rxd),
         .clk_o(eth_clk),
-        .mon_clk_o(eth_mon_clk),
-        .mon_d_o(eth_mon_d)
+        
+        .bram_rd_addr_start_o(bram_rd_addr_start),
+        .led_is_resetting_i(is_resetting),
+        
+        .bram_wr_addr_o(bram_wr_addr),
+        .bram_wea_o(bram_wea),
+        .bram_d_o(bram_din)
     );
     
     blk_mem_gen_0 bram(

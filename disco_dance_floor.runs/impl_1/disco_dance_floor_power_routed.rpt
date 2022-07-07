@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-| Date             : Mon Jul  4 14:30:24 2022
+| Date             : Wed Jul  6 21:01:10 2022
 | Host             : mpc running 64-bit major release  (build 9200)
 | Command          : report_power -file disco_dance_floor_power_routed.rpt -pb disco_dance_floor_power_summary_routed.pb -rpx disco_dance_floor_power_routed.rpx
 | Design           : disco_dance_floor
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.443        |
+| Total On-Chip Power (W)  | 0.330        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.344        |
+| Dynamic (W)              | 0.232        |
 | Device Static (W)        | 0.099        |
 | Effective TJA (C/W)      | 4.6          |
-| Max Ambient (C)          | 83.0         |
-| Junction Temperature (C) | 27.0         |
+| Max Ambient (C)          | 83.5         |
+| Junction Temperature (C) | 26.5         |
 | Confidence Level         | Medium       |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,19 +52,20 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.006 |       12 |       --- |             --- |
-| Slice Logic    |    <0.001 |     2367 |       --- |             --- |
-|   LUT as Logic |    <0.001 |     1145 |     63400 |            1.81 |
-|   F7/F8 Muxes  |    <0.001 |      157 |     63400 |            0.25 |
-|   Register     |    <0.001 |      794 |    126800 |            0.63 |
-|   CARRY4       |    <0.001 |        8 |     15850 |            0.05 |
-|   Others       |     0.000 |       51 |       --- |             --- |
-| Signals        |    <0.001 |     1756 |       --- |             --- |
-| Block RAM      |     0.005 |       16 |       135 |           11.85 |
-| MMCM           |     0.324 |        3 |         6 |           50.00 |
-| I/O            |     0.007 |       34 |       210 |           16.19 |
+| Clocks         |     0.004 |        9 |       --- |             --- |
+| Slice Logic    |    <0.001 |      578 |       --- |             --- |
+|   LUT as Logic |    <0.001 |      217 |     63400 |            0.34 |
+|   CARRY4       |    <0.001 |       11 |     15850 |            0.07 |
+|   Register     |    <0.001 |      210 |    126800 |            0.17 |
+|   F7/F8 Muxes  |    <0.001 |       27 |     63400 |            0.04 |
+|   Others       |     0.000 |       46 |       --- |             --- |
+| Signals        |    <0.001 |      570 |       --- |             --- |
+| Block RAM      |     0.003 |       16 |       135 |           11.85 |
+| MMCM           |     0.217 |        2 |         6 |           33.33 |
+| DSPs           |    <0.001 |        2 |       240 |            0.83 |
+| I/O            |     0.006 |       32 |       210 |           15.24 |
 | Static Power   |     0.099 |          |           |                 |
-| Total          |     0.443 |          |           |                 |
+| Total          |     0.330 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -74,8 +75,8 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.030 |       0.013 |      0.016 |       NA    | Unspecified | NA         |
-| Vccaux    |       1.800 |     0.198 |       0.180 |      0.018 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.025 |       0.009 |      0.016 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.139 |       0.121 |      0.018 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.006 |       0.002 |      0.004 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -127,18 +128,16 @@ Table of Contents
 2.2 Clock Constraints
 ---------------------
 
-+--------------------+-------------------------------------------+-----------------+
-| Clock              | Domain                                    | Constraint (ns) |
-+--------------------+-------------------------------------------+-----------------+
-| clk_out1_clk_wiz_0 | e/eth_clk_gen/inst/clk_out1_clk_wiz_0     |            20.0 |
-| clk_out1_clk_wiz_1 | led_clk_gen/inst/clk_out1_clk_wiz_1       |            50.0 |
-| clk_out1_clk_wiz_2 | e/eth_mon_clk_gen/inst/clk_out1_clk_wiz_2 |           100.0 |
-| clkfbout_clk_wiz_0 | e/eth_clk_gen/inst/clkfbout_clk_wiz_0     |            10.0 |
-| clkfbout_clk_wiz_1 | led_clk_gen/inst/clkfbout_clk_wiz_1       |            10.0 |
-| clkfbout_clk_wiz_2 | e/eth_mon_clk_gen/inst/clkfbout_clk_wiz_2 |            20.0 |
-| sys_clk_pin        | clk                                       |            10.0 |
-| sys_clk_pin        | clk_IBUF_BUFG                             |            10.0 |
-+--------------------+-------------------------------------------+-----------------+
++--------------------+---------------------------------------+-----------------+
+| Clock              | Domain                                | Constraint (ns) |
++--------------------+---------------------------------------+-----------------+
+| clk_out1_clk_wiz_0 | e/eth_clk_gen/inst/clk_out1_clk_wiz_0 |            20.0 |
+| clk_out1_clk_wiz_1 | led_clk_gen/inst/clk_out1_clk_wiz_1   |            50.0 |
+| clkfbout_clk_wiz_0 | e/eth_clk_gen/inst/clkfbout_clk_wiz_0 |            10.0 |
+| clkfbout_clk_wiz_1 | led_clk_gen/inst/clkfbout_clk_wiz_1   |            10.0 |
+| sys_clk_pin        | clk                                   |            10.0 |
+| sys_clk_pin        | clk_IBUF_BUFG                         |            10.0 |
++--------------------+---------------------------------------+-----------------+
 
 
 3. Detailed Reports
@@ -150,15 +149,13 @@ Table of Contents
 +------------------------+-----------+
 | Name                   | Power (W) |
 +------------------------+-----------+
-| disco_dance_floor      |     0.344 |
-|   bram                 |     0.007 |
-|     U0                 |     0.007 |
-|       inst_blk_mem_gen |     0.007 |
-|   e                    |     0.217 |
+| disco_dance_floor      |     0.232 |
+|   bram                 |     0.005 |
+|     U0                 |     0.005 |
+|       inst_blk_mem_gen |     0.005 |
+|   e                    |     0.108 |
 |     eth_clk_gen        |     0.106 |
 |       inst             |     0.106 |
-|     eth_mon_clk_gen    |     0.107 |
-|       inst             |     0.107 |
 |   led_clk_gen          |     0.112 |
 |     inst               |     0.112 |
 +------------------------+-----------+
