@@ -1,7 +1,7 @@
-Running: xsim.dir/disco_dance_floor_tb_behav/xsimk.exe -simmode gui -wdb disco_dance_floor_tb_behav.wdb -simrunnum 0 -socket 57105
+Running: xsim.dir/disco_dance_floor_tb_behav/xsimk.exe -simmode gui -wdb disco_dance_floor_tb_behav.wdb -simrunnum 0 -socket 16190
 Design successfully loaded
-Design Loading Memory Usage: 7948 KB (Peak: 7948 KB)
-Design Loading CPU Usage: 77 ms
+Design Loading Memory Usage: 7916 KB (Peak: 7916 KB)
+Design Loading CPU Usage: 0 ms
 Simulation completed
-Simulation Memory Usage: 18020 KB (Peak: 18020 KB)
-Simulation CPU Usage: 88062 ms
+Simulation Memory Usage: 19000 KB (Peak: 19000 KB)
+Simulation CPU Usage: 511577 ms

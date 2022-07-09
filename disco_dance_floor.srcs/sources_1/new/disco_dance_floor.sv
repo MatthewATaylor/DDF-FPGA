@@ -38,6 +38,7 @@ module disco_dance_floor#(
     
     // BRAM port B (read)
     logic[13:0] bram_rd_addr_start;  // Either 0 or BITS_PER_CHUNK depending on active buffer
+    logic[13:0] prev_bram_rd_addr_start;
     logic[14:0] bram_rd_addr;
     logic[NUM_CHUNKS-1:0] bram_dout;
     
@@ -51,17 +52,24 @@ module disco_dance_floor#(
             next_bit_index <= 0;
             bit_cycles <= 0;
             
+            prev_bram_rd_addr_start <= 0;
             bram_rd_addr <= 0;
             
             init <= 0;
         end
         else begin
+            // bram_rd_addr_start set by eth when is_resetting == 1
+            bram_rd_addr <= bram_rd_addr_start + next_bit_index;
+        
             if (is_resetting) begin
                 // >50us reset between frames
                 if (bit_cycles == 2000) begin
-                    bit_cycles <= 0;
-                    is_resetting <= 0;
-                    // TODO - set bram_rd_addr_start (only write to other half of BRAM)
+                    if (bram_rd_addr_start != prev_bram_rd_addr_start) begin
+                        // Wait for eth to have a new (different) frame ready
+                        bit_cycles <= 0;
+                        is_resetting <= 0;
+                        prev_bram_rd_addr_start <= bram_rd_addr_start;
+                    end
                 end
                 else begin
                     bit_cycles <= bit_cycles + 1;
@@ -82,7 +90,15 @@ module disco_dance_floor#(
                         // Start of pulse - set output pins high, store bit values
                         led <= {NUM_CHUNKS{1'b1}};
                         current_bits <= bram_dout;
-                        next_bit_index <= next_bit_index + 1;
+                        
+                        // Set read address offset for next bits
+                        if (next_bit_index == BITS_PER_CHUNK - 1) begin
+                            next_bit_index <= 0;
+                            will_reset <= 1;  // Will reset after these bits
+                        end
+                        else begin
+                            next_bit_index <= next_bit_index + 1;
+                        end
                     end
                     else if (bit_cycles == 8) begin
                         // End of pulse for 0 bits
@@ -91,16 +107,6 @@ module disco_dance_floor#(
                     else if (bit_cycles == 16) begin
                         // End of pulse for 1 bits
                         led <= 0;
-                        
-                        // Set BRAM read address for next bit
-                        if (next_bit_index == BITS_PER_CHUNK) begin
-                            // Finished full chunk, will need to reset
-                            bram_rd_addr <= bram_rd_addr_start;
-                            will_reset <= 1;
-                        end
-                        else begin
-                            bram_rd_addr <= bram_rd_addr_start + next_bit_index;
-                        end
                     end
                     bit_cycles <= bit_cycles + 1;
                 end

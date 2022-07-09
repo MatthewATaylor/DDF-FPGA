@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-| Date         : Wed Jul  6 21:00:31 2022
+| Date         : Sat Jul  9 19:14:06 2022
 | Host         : mpc running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file disco_dance_floor_control_sets_placed.rpt
 | Design       : disco_dance_floor
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    28 |
-|    Minimum number of control sets                        |    28 |
+| Total control sets                                       |    40 |
+|    Minimum number of control sets                        |    40 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |   158 |
+| Unused register locations in slices containing registers |   247 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,15 +39,15 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    28 |
-| >= 0 to < 4        |    17 |
+| Total control sets |    40 |
+| >= 0 to < 4        |    28 |
 | >= 4 to < 6        |     3 |
 | >= 6 to < 8        |     0 |
 | >= 8 to < 10       |     1 |
-| >= 10 to < 12      |     0 |
+| >= 10 to < 12      |     1 |
 | >= 12 to < 14      |     0 |
-| >= 14 to < 16      |     3 |
-| >= 16              |     4 |
+| >= 14 to < 16      |     2 |
+| >= 16              |     5 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -58,12 +58,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |               9 |            7 |
+| No           | No                    | No                     |              18 |           11 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              58 |           20 |
+| No           | Yes                   | No                     |              52 |           24 |
 | Yes          | No                    | No                     |              27 |           17 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |             116 |           41 |
+| Yes          | Yes                   | No                     |             128 |           58 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -73,34 +73,46 @@ Table of Contents
 +------------------------------+------------------------------+------------------+------------------+----------------+--------------+
 |         Clock Signal         |         Enable Signal        | Set/Reset Signal | Slice Load Count | Bel Load Count | Bels / Slice |
 +------------------------------+------------------------------+------------------+------------------+----------------+--------------+
-|  e/eth_clk_gen/inst/clk_out1 |                              |                  |                1 |              1 |         1.00 |
-|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[26]_i_1_n_0      | e/init_reg_n_0   |                1 |              1 |         1.00 |
-|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[20]_i_1_n_0      | e/init_reg_n_0   |                1 |              1 |         1.00 |
-|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[22]_i_1_n_0      | e/init_reg_n_0   |                1 |              1 |         1.00 |
-|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[30]_i_1_n_0      | e/init_reg_n_0   |                1 |              1 |         1.00 |
-|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[2]_i_1_n_0       | e/init_reg_n_0   |                1 |              1 |         1.00 |
-|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[8]_i_1_n_0       | e/init_reg_n_0   |                1 |              1 |         1.00 |
-|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[24]_i_1_n_0      | e/init_reg_n_0   |                1 |              1 |         1.00 |
-|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[10]_i_1_n_0      | e/init_reg_n_0   |                1 |              1 |         1.00 |
-|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[16]_i_1_n_0      | e/init_reg_n_0   |                1 |              1 |         1.00 |
-|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[12]_i_1_n_0      | e/init_reg_n_0   |                1 |              1 |         1.00 |
-|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[18]_i_1_n_0      | e/init_reg_n_0   |                1 |              1 |         1.00 |
-|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[4]_i_1_n_0       | e/init_reg_n_0   |                1 |              1 |         1.00 |
-|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[14]_i_1_n_0      | e/init_reg_n_0   |                1 |              1 |         1.00 |
-|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[28]_i_1_n_0      | e/init_reg_n_0   |                1 |              1 |         1.00 |
-|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[6]_i_1_n_0       | e/init_reg_n_0   |                1 |              1 |         1.00 |
-|  led_clk_gen/inst/clk_out1   |                              |                  |                3 |              3 |         1.00 |
-|  e/eth_clk_gen/inst/clk_out1 | e/buff_index                 | e/init_reg_n_0   |                3 |              4 |         1.33 |
+|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[46]_i_1_n_0      | e/init           |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[6]_i_1_n_0       | e/init           |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[32]_i_1_n_0      | e/init           |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[8]_i_1_n_0       | e/init           |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[10]_i_1_n_0      | e/init           |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[26]_i_1_n_0      | e/init           |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[28]_i_1_n_0      | e/init           |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[2]_i_1_n_0       | e/init           |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[24]_i_1_n_0      | e/init           |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[16]_i_1_n_0      | e/init           |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[40]_i_1_n_0      | e/init           |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[30]_i_1_n_0      | e/init           |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[20]_i_1_n_0      | e/init           |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[22]_i_1_n_0      | e/init           |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[14]_i_1_n_0      | e/init           |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[18]_i_1_n_0      | e/init           |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[0]_i_1_n_0       | e/init           |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[12]_i_1_n_0      | e/init           |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[42]_i_1_n_0      | e/init           |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[38]_i_1_n_0      | e/init           |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[4]_i_1_n_0       | e/init           |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[50]_i_1_n_0      | e/init           |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[52]_i_1_n_0      | e/init           |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[34]_i_1_n_0      | e/init           |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[36]_i_1_n_0      | e/init           |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[44]_i_1_n_0      | e/init           |                1 |              1 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1 | e/data_buff[48]_i_1_n_0      | e/init           |                1 |              1 |         1.00 |
+|  led_clk_gen/inst/clk_out1   |                              |                  |                2 |              2 |         1.00 |
+|  e/eth_clk_gen/inst/clk_out1 | e/bram_wr_addr_o_reg_i_1_n_0 | e/clear          |                2 |              5 |         2.50 |
 |  clk_IBUF_BUFG               |                              |                  |                3 |              5 |         1.67 |
-|  e/eth_clk_gen/inst/clk_out1 | e/bram_wr_addr_o_reg_i_1_n_0 | e/clear          |                1 |              5 |         5.00 |
+|  e/eth_clk_gen/inst/clk_out1 | e/buff_index[5]_i_1_n_0      | e/init           |                2 |              5 |         2.50 |
 |  e/eth_clk_gen/inst/clk_out1 | e/bit_counter                | e/clear          |                4 |              9 |         2.25 |
-|  led_clk_gen/inst/clk_out1   | bram_rd_addr[13]_i_1_n_0     | init             |                2 |             14 |         7.00 |
-|  led_clk_gen/inst/clk_out1   | next_bit_index               | init             |                4 |             14 |         3.50 |
-|  led_clk_gen/inst/clk_out1   |                              | init             |                5 |             15 |         3.00 |
+|  e/eth_clk_gen/inst/clk_out1 |                              |                  |                6 |             11 |         1.83 |
+|  led_clk_gen/inst/clk_out1   | e/E[0]                       | init             |                4 |             14 |         3.50 |
+|  led_clk_gen/inst/clk_out1   | next_bit_index[13]_i_1_n_0   | init             |                3 |             14 |         4.67 |
+|  led_clk_gen/inst/clk_out1   |                              | init             |                7 |             17 |         2.43 |
+|  e/eth_clk_gen/inst/clk_out1 | e/should_write_bram          | e/init           |                6 |             27 |         4.50 |
 |  led_clk_gen/inst/clk_out1   | current_bits                 |                  |               17 |             27 |         1.59 |
-|  led_clk_gen/inst/clk_out1   | led[26]_i_1_n_0              | init             |                5 |             27 |         5.40 |
-|  e/eth_clk_gen/inst/clk_out1 | e/bram_wr_addr_o_reg_i_2_n_0 | e/init_reg_n_0   |                7 |             28 |         4.00 |
-|  e/eth_clk_gen/inst/clk_out1 |                              | e/init_reg_n_0   |               15 |             43 |         2.87 |
+|  led_clk_gen/inst/clk_out1   | led[26]_i_1_n_0              | init             |               10 |             27 |         2.70 |
+|  e/eth_clk_gen/inst/clk_out1 |                              | e/init           |               17 |             35 |         2.06 |
 +------------------------------+------------------------------+------------------+------------------+----------------+--------------+
 
 

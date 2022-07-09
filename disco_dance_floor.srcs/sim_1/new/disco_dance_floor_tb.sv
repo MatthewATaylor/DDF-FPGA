@@ -9,18 +9,22 @@ module disco_dance_floor_tb();
     
     logic[26:0] led;
     
-    logic[0:1201] frame = 0;
+    logic[1201:0] frame = 0;
     logic[10:0] frame_index = 1180;
     
+    logic[9:0] led_index;
+    
+    assign led_index = frame[191:176];
+    
     initial begin
-        frame[0:63]      <= 64'b1010101010101010101010101010101010101010101010101010101010101011;  // Preamble
-        frame[64:111]    <= 48'b111111111111111111111111111111111111111111111111;  // Dst MAC
-        frame[112:159]   <= 48'b001010101111110100100110111010001011010000100001;  // Src MAC
-        frame[160:175]   <= 16'b0001000000000000;  // EtherType
-        // frame[176:191] is LED index (starts at 0)
-        frame[192:839]   <= {648{1'b1}};  // Data
-        frame[1000:1023] <= 24'b101010101010101010101010;  // Some random postfix bits
-        // frame[1024:1200] is space between frames
+        frame[63:0]      <= 64'b1101010101010101010101010101010101010101010101010101010101010101;  // Preamble
+        frame[111:64]    <= 48'b111111111111111111111111111111111111111111111111;  // Dst MAC
+        frame[159:112]   <= 48'b001010101111110100100110111010001011010000100001;  // Src MAC
+        frame[175:160]   <= 16'b0000000000001000;  // EtherType
+        frame[191:176]   <= 439;  // LED index
+        frame[839:192]   <= {648{1'b1}};  // Data
+        frame[1023:1000] <= 24'b101010101010101010101010;  // Some random postfix bits
+        // frame[1024:1201] is space between frames
     end
     
     always begin
@@ -47,11 +51,11 @@ module disco_dance_floor_tb();
         if (frame_index == 1200) begin
             frame_index <= 0;
             
-            if (frame[176:191] == 439) begin
-                frame[176:191] <= 0;
+            if (frame[191:176] == 439) begin
+                frame[191:176] <= 0;
             end
             else begin
-                frame[176:191] <= frame[176:191] + 1;
+                frame[191:176] <= frame[191:176] + 1;
             end
         end
         else begin
